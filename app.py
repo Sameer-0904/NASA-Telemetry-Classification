@@ -101,7 +101,7 @@ page = st.sidebar.radio("Navigate", ["🏠 Home", "🔍 Predict", "📊 Model Co
 # ─── Page 1: Home ─────────────────────────────────────────
 if page == "🏠 Home":
     st.title("🛸 NASA Telemetry Anomaly Detection")
-    st.subheader("SMAP & MSL Dataset — GTU Data Mining Project (3160714)")
+    st.subheader("SMAP & MSL Dataset")
     st.markdown("---")
 
     col1, col2, col3, col4 = st.columns(4)
@@ -114,13 +114,13 @@ if page == "🏠 Home":
     st.markdown("### About This Project")
     st.markdown("""
     This project detects anomalies in NASA spacecraft telemetry data using three machine learning models:
-    - **XGBoost** — Gradient boosting on 125 statistical features (Winner 🏆)
-    - **Random Forest** — Ensemble of 100 decision trees
-    - **BiLSTM + Attention** — Deep learning on raw telemetry sequences
+    - **XGBoost** - Gradient boosting on 125 statistical features (Winner 🏆)
+    - **Random Forest** - Ensemble of 100 decision trees
+    - **BiLSTM + Attention** - Deep learning on raw telemetry sequences
     
     The dataset contains telemetry from two NASA spacecraft:
-    - **SMAP** — Soil Moisture Active Passive satellite
-    - **MSL** — Mars Science Laboratory (Curiosity Rover)
+    - **SMAP** - Soil Moisture Active Passive satellite
+    - **MSL** - Mars Science Laboratory (Curiosity Rover)
     """)
 
     st.markdown("---")
@@ -131,6 +131,9 @@ if page == "🏠 Home":
         'F1 Score' : ['86.17%', '55.42%', '~31.72%'],
         'ROC-AUC'  : ['98.77%', '93.72%', '73.01%']
     })
+
+    results_df.index = results_df.index + 1
+    
     st.dataframe(results_df, use_container_width=True)
 
 # ─── Page 2: Predict ──────────────────────────────────────
@@ -145,7 +148,7 @@ elif page == "🔍 Predict":
     if uploaded_file is not None:
         data      = np.load(uploaded_file)
         chan_name  = uploaded_file.name.replace('.npy', '')
-        st.success(f"File loaded — Channel: {chan_name} | Shape: {data.shape}")
+        st.success(f"File loaded - Channel: {chan_name} | Shape: {data.shape}")
 
         if data.shape[1] < MIN_FEATURES:
             st.error(f"File must have at least {MIN_FEATURES} features. Got {data.shape[1]}")
@@ -187,7 +190,7 @@ elif page == "🔍 Predict":
                             if label == 1:
                                 true_signal[start:end] = 1
                         
-                        st.success(f"Ground truth loaded — True anomaly windows: {true_window_labels.sum()}")
+                        st.success(f"Ground truth loaded - True anomaly windows: {true_window_labels.sum()}")
                 except Exception as e:
                     st.error(f"Error reading labels: {e}")
 
@@ -210,7 +213,7 @@ elif page == "🔍 Predict":
                 axes[0].plot(signal, color='steelblue', linewidth=0.7, label='Telemetry')
                 axes[0].fill_between(range(len(signal)), signal.min(), signal.max(),
                                      where=true_labels==1, color='green', alpha=0.3, label='True Anomaly')
-                axes[0].set_title(f'Channel {chan_name} — Ground Truth')
+                axes[0].set_title(f'Channel {chan_name} - Ground Truth')
                 axes[0].set_xlabel('Timestep')
                 axes[0].set_ylabel('Value')
                 axes[0].legend()
@@ -219,12 +222,12 @@ elif page == "🔍 Predict":
                 axes[1].plot(signal, color='steelblue', linewidth=0.7, label='Telemetry')
                 axes[1].fill_between(range(len(signal)), signal.min(), signal.max(),
                                      where=pred_signal==1, color='crimson', alpha=0.3, label='Predicted Anomaly')
-                axes[1].set_title(f'Channel {chan_name} — XGBoost Prediction')
+                axes[1].set_title(f'Channel {chan_name} - XGBoost Prediction')
                 axes[1].set_xlabel('Timestep')
                 axes[1].set_ylabel('Value')
                 axes[1].legend()
 
-                plt.suptitle(f'Ground Truth vs Prediction — {chan_name}', fontsize=13)
+                plt.suptitle(f'Ground Truth vs Prediction - {chan_name}', fontsize=13)
                 plt.tight_layout()
                 st.pyplot(fig)
 
@@ -233,7 +236,7 @@ elif page == "🔍 Predict":
                 ax.plot(signal, color='steelblue', linewidth=0.7, label='Telemetry')
                 ax.fill_between(range(len(signal)), signal.min(), signal.max(),
                                 where=pred_signal==1, color='crimson', alpha=0.3, label='Predicted Anomaly')
-                ax.set_title(f'Channel {chan_name} — Predicted Anomaly Regions')
+                ax.set_title(f'Channel {chan_name} - Predicted Anomaly Regions')
                 ax.set_xlabel('Timestep')
                 ax.set_ylabel('Value')
                 ax.legend()
@@ -265,7 +268,7 @@ elif page == "📊 Model Comparison":
 
     if uploaded_file is not None:
         data = np.load(uploaded_file)
-        st.success(f"File loaded — Shape: {data.shape}")
+        st.success(f"File loaded - Shape: {data.shape}")
 
         with st.spinner("Running all 3 models..."):
             windows, flat_features        = preprocess(data)
@@ -298,7 +301,7 @@ elif page == "📊 Model Comparison":
         colors    = ['steelblue', 'darkorange', 'crimson']
         bars      = ax.bar(models, anomalies, color=colors)
         ax.bar_label(bars, padding=3)
-        ax.set_title('Anomaly Windows Detected — All Models')
+        ax.set_title('Anomaly Windows Detected - All Models')
         ax.set_ylabel('Anomaly Count')
         st.pyplot(fig)
 
@@ -331,7 +334,7 @@ elif page == "📊 Model Comparison":
             axes[0].plot(signal, color='steelblue', linewidth=0.6)
             axes[0].fill_between(range(len(signal)), signal.min(), signal.max(),
                                 where=true_signal==1, color='green', alpha=0.3, label='True Anomaly')
-            axes[0].set_title(f'Ground Truth — {chan_name}')
+            axes[0].set_title(f'Ground Truth - {chan_name}')
             axes[0].legend()
             model_axes = axes[1:]
         else:
@@ -355,7 +358,7 @@ elif page == "📊 Model Comparison":
             ax.set_title(f'{name} — Anomaly Regions')
             ax.legend()
 
-        plt.suptitle(f'Anomaly Timeline — {chan_name}', fontsize=13)
+        plt.suptitle(f'Anomaly Timeline - {chan_name}', fontsize=13)
         plt.tight_layout()
         st.pyplot(fig)
 
