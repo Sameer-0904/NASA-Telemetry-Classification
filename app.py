@@ -185,8 +185,8 @@ if page == "🏠 Home":
     # Updated to reflect that these are Tuned models and adding the Ensemble
     results_df = pd.DataFrame({
         'Model'    : ['Ensemble (Voting) 🏆', 'Tuned XGBoost', 'Tuned Random Forest', 'Tuned BiLSTM'],
-        'Accuracy' : ['97.50%', '96.21%', '94.10%', '90.50%'], # Update these with your actual test results if different
-        'F1 Score' : ['89.20%', '86.17%', '84.50%', '78.30%']  # Update these with your actual test results if different
+        'Accuracy' : ['98%', '98%', '98%', '82%'], 
+        'F1 Score' : ['92.59%', '97.43%', '97.41%', '75.90%']  
     })
 
     results_df.index = results_df.index + 1
