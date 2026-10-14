@@ -1,6 +1,6 @@
 # NASA Telemetry Classification
 
-A NASA spacecraft telemetry anomaly detection project that combines machine learning and explainable AI to detect abnormal patterns in telemetry streams from the SMAP and MSL missions. The app is built with Streamlit and uses an ensemble of XGBoost, Random Forest, and a BiLSTM-based deep learning model to classify anomaly windows with a majority-vote strategy.
+A NASA spacecraft telemetry anomaly detection project that combines machine learning and explainable AI to detect abnormal patterns in telemetry streams from the SMAP and MSL missions. The app is b[...]
 
 This project is especially useful for interview conversations because it demonstrates:
 - end-to-end ML pipeline design
@@ -19,7 +19,7 @@ In practical terms, the model looks at a stream of sensor readings and tries to 
 - Which regions of the signal look suspicious?
 - Which features are driving the model's decision?
 
-This is a classic time-series anomaly detection problem. The data is not just random noise; it is structured telemetry from real spacecraft systems, where anomalies can be subtle, contextual, or sudden.
+This is a classic time-series anomaly detection problem. The data is not just random noise; it is structured telemetry from real spacecraft systems, where anomalies can be subtle, contextual, or s[...]
 
 ## 2. Why This Project Matters
 
@@ -31,7 +31,7 @@ This project helps by automating anomaly detection so engineers can:
 - reduce the risk of unnoticed system degradation
 - improve operational monitoring of flight systems
 
-From an interview perspective, this shows that you can work on a realistic, high-impact ML problem where the challenge is not only model accuracy, but also real-world interpretability and deployment.
+From an interview perspective, this shows that you can work on a realistic, high-impact ML problem where the challenge is not only model accuracy, but also real-world interpretability and deployme[...]
 
 ## 3. Dataset Overview
 
@@ -157,7 +157,7 @@ NASA-Telemetry-Classification/
 │   ├── .gitattributes
 │   ├── scaler.joblib
 │   ├── tuned_lstm_scikeras.joblib
-│   ├── tuned_rf_model.joblib
+│   ├���─ tuned_rf_model.joblib
 │   └── tuned_xgb_model.joblib
 ├── NASA_Telemetry_Anomaly_Classification.ipynb
 ├── README.md
@@ -301,23 +301,6 @@ This is a good interview talking point because it shows:
 - ensembling was used to combine strengths
 - performance was measured with meaningful classification metrics
 
-## 11. Why This Project Is Strong for Interviews
-
-This repository is interview-friendly because it demonstrates multiple skills at once:
-
-- Time-series data analysis
-- Feature engineering
-- Model selection and comparison
-- Ensemble learning
-- Deep learning for sequences
-- Explainable AI
-- Deployment through Streamlit
-- Real-world scientific use case
-
-A strong answer in an interview could be:
-
-> I built a spacecraft telemetry anomaly detection system using NASA SMAP and MSL data. The project processes telemetry windows, extracts statistical features, trains an XGBoost model and Random Forest on those features, and uses a BiLSTM with attention to model sequential dependencies. I combine these predictions with a majority-vote ensemble and deploy the system in a Streamlit app. I also use SHAP to explain which features contributed to each anomaly decision, making the model more transparent and useful for real-world monitoring.
-
 ## 12. How to Run the Project
 
 ### Install dependencies
@@ -343,11 +326,11 @@ http://localhost:8501
 
 If you need a simplified explanation in 30–60 seconds, you can say:
 
-> This project detects anomalies in NASA spacecraft telemetry using machine learning. Instead of manually inspecting millions of sensor readings, I built a system that analyzes time-series windows, identifies abnormal behavior, and flags suspicious regions. The model uses a mix of tree-based models and a deep learning sequence model, then combines them through ensemble voting to improve robustness. I also added SHAP-based explainability so you can understand which telemetry features drove the anomaly detection decision.
+> This project detects anomalies in NASA spacecraft telemetry using machine learning. Instead of manually inspecting millions of sensor readings, I built a system that analyzes time-series window[...]
 
 ## 14. Technical-Level Explanation for Interviews
 
-> I developed a multistage anomaly detection pipeline for NASA telemetry. The system breaks telemetry streams into overlapping windows, extracts statistical features like mean, variance, and signal range, then trains XGBoost and Random Forest models on those engineered features. For sequential dependency modeling, I include a BiLSTM with attention on raw windows. The final prediction uses a majority-vote ensemble across the three models, and I use SHAP to interpret the XGBoost component. The project is packaged in a Streamlit app to allow interactive anomaly prediction and model comparison.
+> I developed a multistage anomaly detection pipeline for NASA telemetry. The system breaks telemetry streams into overlapping windows, extracts statistical features like mean, variance, and sign[...]
 
 ## 15. Final Summary
 
@@ -359,7 +342,7 @@ This repository is a strong example of applied ML because it combines:
 - deployment in an interactive interface
 - explainability and model interpretation
 
-It is a great project to discuss in interviews because it shows you can handle both model-building and product-style deployment, and that you understand the full workflow from raw telemetry to interpretable, actionable decisions.
+It is a great project to discuss in interviews because it shows you can handle both model-building and product-style deployment, and that you understand the full workflow from raw telemetry to in[...]
 
 ---
 
