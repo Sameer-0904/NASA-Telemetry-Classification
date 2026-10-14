@@ -301,7 +301,7 @@ This is a good interview talking point because it shows:
 - ensembling was used to combine strengths
 - performance was measured with meaningful classification metrics
 
-## 12. How to Run the Project
+## 11. How to Run the Project
 
 ### Install dependencies
 
@@ -322,17 +322,7 @@ Open the generated localhost link, typically:
 http://localhost:8501
 ```
 
-## 13. Business-Level Explanation for Interviews
-
-If you need a simplified explanation in 30–60 seconds, you can say:
-
-> This project detects anomalies in NASA spacecraft telemetry using machine learning. Instead of manually inspecting millions of sensor readings, I built a system that analyzes time-series window[...]
-
-## 14. Technical-Level Explanation for Interviews
-
-> I developed a multistage anomaly detection pipeline for NASA telemetry. The system breaks telemetry streams into overlapping windows, extracts statistical features like mean, variance, and sign[...]
-
-## 15. Final Summary
+## 12. Final Summary
 
 This repository is a strong example of applied ML because it combines:
 - realistic scientific data
