@@ -2,7 +2,7 @@
 
 A NASA spacecraft telemetry anomaly detection project that combines machine learning and explainable AI to detect abnormal patterns in telemetry streams from the SMAP and MSL missions. The app is b[...]
 
-This project is especially useful for interview conversations because it demonstrates:
+This project demonstrates:
 - end-to-end ML pipeline design
 - time-series anomaly detection
 - model ensembling
@@ -30,8 +30,6 @@ This project helps by automating anomaly detection so engineers can:
 - focus attention on suspicious telemetry windows
 - reduce the risk of unnoticed system degradation
 - improve operational monitoring of flight systems
-
-From an interview perspective, this shows that you can work on a realistic, high-impact ML problem where the challenge is not only model accuracy, but also real-world interpretability and deployme[...]
 
 ## 3. Dataset Overview
 
@@ -90,8 +88,6 @@ Final decision:
 - the ensemble label is the majority vote across the three models
 - this reduces the risk of relying on one model's bias
 
-This is a strong interview story: instead of using a single classifier, you combine models to improve stability and generalization.
-
 ## 6. Key Technical Details from the Code
 
 The project uses these major design choices:
@@ -140,8 +136,6 @@ This is valuable because anomaly detection models are often black boxes. SHAP he
 - which features contributed most to the anomaly decision?
 - are the predictions driven by the right signals?
 - can I explain the model to non-technical stakeholders?
-
-This is a very good interview talking point because it shows you understand model trust and explainability.
 
 ## 7. Repository Structure
 
@@ -282,7 +276,6 @@ The typical pipeline is:
 9. The app visualizes anomaly regions over time
 10. SHAP explains the XGBoost decision for interpretability
 
-This is a strong end-to-end story for interviews because it demonstrates real ML pipeline thinking, not just model training in a notebook.
 
 ## 10. Model Performance Summary
 
@@ -295,7 +288,6 @@ The app reports the following performance summary:
 | Tuned Random Forest | 98% | 97.41% |
 | Tuned BiLSTM | 82% | 75.90% |
 
-This is a good interview talking point because it shows:
 - the project went beyond a simple prototype
 - model comparison was performed
 - ensembling was used to combine strengths
@@ -332,14 +324,5 @@ This repository is a strong example of applied ML because it combines:
 - deployment in an interactive interface
 - explainability and model interpretation
 
-It is a great project to discuss in interviews because it shows you can handle both model-building and product-style deployment, and that you understand the full workflow from raw telemetry to in[...]
 
----
 
-If you want, I can also create a second version of this README tailored specifically for:
-1. GitHub portfolio style
-2. Interview answer style
-3. recruiter-friendly summary
-4. technical deep-dive version
-
-I can also generate a polished one-page project pitch for your LinkedIn / GitHub profile.
